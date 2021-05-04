@@ -51,18 +51,20 @@ Usage
 Create a `.curve` file specifying your curve, following the format described
 in [curve-format.md](curve-format.md). For example:
 
-  name: Ed25519
-  field: 2^255 - 19
-  curve: -x^2 + y^2 = 1 + d*x^2*y^2
-  d: -121665/121666
-  generator: (+ve, 4/5)
-
-or
-
-  name: BLS12-381
-  curve: y^2 = x^3 + 4
-  construction: BLS12
-  u: -15132376222941642752
+```
+name: Ed25519
+field: 2^255 - 19
+curve: -x^2 + y^2 = 1 + d*x^2*y^2
+d: -121665/121666
+generator: (+ve, 4/5)
+```
+or:
+```
+name: BLS12-381
+curve: y^2 = x^3 + 4
+construction: BLS12
+u: -15132376222941642752
+```
 
 There are more examples of widely deployed curves in the `curves` directory.
 
@@ -72,7 +74,7 @@ format (with embedded LaTeX using `$...$` for math) to the file `mycurve.md`.
 
 A file `mycurve.primes` will also be created to cache prime factorizations
 used in the checking process; this greatly speeds up future runs. The usage
-of this file is explained in [primes-format](primes-format.md).
+of this file is explained in [primes-format.md](primes-format.md).
 
 Use `./describe-curve.sage --help` for more options.
 
@@ -126,6 +128,6 @@ Citation
 This software can be cited as:
 
 Daira Hopwood and contributors. *describe-curve* software, version <...>.
-https://github.com/daira/describe-curves
+https://github.com/daira/describe-curve
 
 The version should be a release tag.
