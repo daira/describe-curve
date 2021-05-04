@@ -1,0 +1,4 @@
+name: BLS12-381
+curve: y^2 = x^3 + 4
+construction: BLS12
+u: -15132376222941642752

@@ -1,0 +1,5 @@
+name: Ed25519
+field: 2^255 - 19
+curve: -x^2 + y^2 = 1 + d*x^2*y^2
+d: -121665/121666
+generator: (+ve, 4/5)
