@@ -72,9 +72,9 @@ Given a curve specification in `mycurve.curve`, it can be processed using
 `./describe-curve.sage mycurve.curve`. The default is to output in mdbook
 format (with embedded LaTeX using `$...$` for math) to the file `mycurve.md`.
 
-A file `mycurve.primes` will also be created to cache prime factorizations
-used in the checking process; this greatly speeds up future runs. The usage
-of this file is explained in [primes-format.md](primes-format.md).
+A file `mycurve.factors` will also be created to cache factorizations used
+in the checking process; this greatly speeds up future runs. The usage of
+this file is explained in [factors-format.md](factors-format.md).
 
 Use `./describe-curve.sage --help` for more options.
 
