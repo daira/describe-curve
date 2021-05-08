@@ -1,9 +1,10 @@
 # Parsing of the .curve format
 
 class Curve:
-    KEYS = {"name", "field", "curve", "generator", "construction"}
+    KEYS = {"source-url", "name", "field", "curve", "generator", "construction"}
 
     def __init__(self, curvefile):
+        self.source_url = None
         self.name = None
         self.field = None
         self.curve = None
@@ -21,7 +22,7 @@ class Curve:
             if len(key) == 1:
                 self.parameters[key] = value
             elif key in self.KEYS:
-                setattr(self, key, value)
+                setattr(self, key.replace('-', '_'), value)
             else:
                 raise KeyError("Unrecognized key name %r" % (key,))
 

@@ -25,6 +25,9 @@ class MarkdownFormatter(object):
     def inlinemath(self, content):
         return "$" + content + "$"
 
+    def link(self, anchor, url):
+        return "[%s](%s)" % (anchor, url)
+
     def list(self, items):
         for item in items:
             self.writer.write("* " + item + "\n")
@@ -40,7 +43,8 @@ class LaTeXFormatter(object):
 
     def preamble(self, title):
         self.writer.write("\\documentclass{article}\n")
-        self.writer.write("\\usepackage{amsmath,amssymb,amsfonts}\n\n")
+        self.writer.write("\\usepackage{amsmath,amssymb,amsfonts}\n")
+        self.writer.write("\\usepackage{hyperref}\n\n")
         self.writer.write("\\begin{document}\n\n")
 
     def postamble(self):
@@ -58,6 +62,9 @@ class LaTeXFormatter(object):
 
     def inlinemath(self, content):
         return "$" + content + "$"
+
+    def link(self, anchor, url):
+        return "\\href{%s}{%s}" % (url, anchor)
 
     def list(self, items):
         self.writer.write("\\begin{itemize}\n")
@@ -113,6 +120,9 @@ class HTML5Formatter(object):
 
     def inlinemath(self, content):
         return "$" + content + "$"
+
+    def link(self, anchor, url):
+        return '<a href="%s">%s</a>' % (url, anchor)
 
     def list(self, items):
         self.writer.write("  <ul>\n")

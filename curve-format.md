@@ -12,6 +12,9 @@ matters for the `name` key, since all other keys only accept US-ASCII).
 Keys
 ----
 
+`source-url`
+: A URL for the definition of this curve.
+
 `name`
 : The name of this curve. This has no effect on security checks but will
   be used in the output to refer to the curve.

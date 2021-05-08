@@ -1,3 +1,6 @@
+# Part of the Pallas-Vesta cycle.
+
+source-url: https://github.com/zcash/pasta
 name: Pallas
 field: 0x40000000000000000000000000000000224698fc094cf91b992d30ed00000001
 curve: y^2 = x^3 + 57

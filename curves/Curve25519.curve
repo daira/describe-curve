@@ -1,3 +1,4 @@
+source-url: https://cr.yp.to/ecdh/curve25519-20060209.pdf
 name: Curve25519
 field: 2^255 - 19
 curve: y^2 = x^3 + 486662*x^2 + x
