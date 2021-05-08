@@ -5,7 +5,7 @@ The checking process involves creating Pocklington primality certificates,
 which are stored in a `.factors` file.
 
 The format of this file is a list of factorizations of the form
-`factor(`<x>`): `<factorization>, where <x> is an integer and <factorization>
+`factor(<x>): <factorization>`, where `<x>` is an integer and `<factorization>`
 is a list of prime powers `p^m` separated by `*`.
 
 It is possible to add factorizations manually, e.g. if a particular
