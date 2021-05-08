@@ -13,10 +13,14 @@ class Curve:
         self.parameters = dict()
 
         for line in curvefile.splitlines():
-            (key, _, value) = line.partition(":")
+            if line.strip() == "":
+                continue
+            (key, sep, value) = line.partition(":")
             key = key.strip()
             if key.startswith("#"):
                 continue
+            if sep != ":":
+                raise KeyError("Line does not contain ':' and is not blank or a comment line: " + line)
 
             value = value.strip()
             if len(key) == 1:
@@ -28,8 +32,8 @@ class Curve:
 
         if self.name is None:
             raise KeyError("The 'name' key is required")
-        if self.field is None:
-            raise KeyError("The 'field' key is required")
+        if self.field is None and self.construction is None:
+            raise KeyError("Either the 'field' or 'construction' key is required")
         if self.curve is None and self.construction is None:
             raise KeyError("Either the 'curve' or 'construction' key is required")
 
