@@ -4,13 +4,13 @@
 This document explains the format of a `.curve` file used as input to
 *describe-curve*. (The `.curve` filetype is optional but recommended.)
 
-The general format is a list of `field: value` items, one on each line.
+The general format is a list of `key: value` items, one on each line.
 Blank lines and lines starting with `#` are ignored. The order of items
 is not significant. The file is assumed to be encoded in UTF-8 (this only
-matters for the `name` field, since all other fields only accept US-ASCII).
+matters for the `name` key, since all other keys only accept US-ASCII).
 
-Fields
-------
+Keys
+----
 
 `name`
 : The name of this curve. This has no effect on security checks but will
