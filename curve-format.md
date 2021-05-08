@@ -35,7 +35,7 @@ Keys
 
   The supported forms of curve equations are:
   * `y^2 = x^3 + a*x + b` (short Weierstrass)
-  * `y^2 = x^3 + A*x^2 + B` (Montgomery)
+  * `B*y^2 = x^3 + A*x^2 + x` (Montgomery)
   * `a*x^2 + y^2 = 1 + d*x^2*y^2` (twisted Edwards)
 
   If you specify a parameter in the curve equation, you do not also need to
