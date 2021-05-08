@@ -65,7 +65,7 @@ Keys
   * `field` is optional, but if given it must be consistent with `u`;
   * the curve equation must match the construction.
 
-There are examples of widely deployed curves in the `examples` directory.
+There are examples of widely deployed curves in the `curves` directory.
 
 If you have suggestions for extensions or improvements to this format, please
 file an issue.
