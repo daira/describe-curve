@@ -14,6 +14,9 @@ class Curve:
         for line in curvefile.splitlines():
             (key, _, value) = line.partition(":")
             key = key.strip()
+            if key.startswith("#"):
+                continue
+
             value = value.strip()
             if len(key) == 1:
                 self.parameters[key] = value
