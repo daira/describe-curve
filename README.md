@@ -29,7 +29,7 @@ the Philosophy section below as a guide to interpreting the output.
 * Support for j = 0 and j = 1728 curves, including finding isogenies for use in
   simplified SWU.
 * Advice on coordinate formats and explicit formulae, if known.
-* LaTeX or mdbook output format.
+* Markdown, LaTeX, or HTML5 output formats.
 
 There are no plans to support:
 
