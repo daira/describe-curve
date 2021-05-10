@@ -13,7 +13,7 @@ class MarkdownFormatter(object):
         pass
 
     def section(self, level, title):
-        assert level >= 1 and level <= 6
+        assert level >= 1 and level <= 5
         self.writer.write("%s %s\n\n" % ("#"*level, title))
 
     def para(self, content):
@@ -36,7 +36,7 @@ class MarkdownFormatter(object):
 
 
 class LaTeXFormatter(object):
-    SECTION_COMMANDS = ["chapter", "section", "subsection", "subsubsection", "paragraph", "subparagraph"]
+    SECTION_COMMANDS = ["section", "subsection", "subsubsection", "paragraph", "subparagraph"]
 
     def __init__(self, writer):
         self.writer = writer
@@ -44,14 +44,18 @@ class LaTeXFormatter(object):
     def preamble(self, title):
         self.writer.write("\\documentclass{article}\n")
         self.writer.write("\\usepackage{amsmath,amssymb,amsfonts}\n")
-        self.writer.write("\\usepackage{hyperref}\n\n")
+        self.writer.write("\\usepackage{hyperref}\n")
+        self.writer.write("\hypersetup{\n"
+                          "  pdfborderstyle={/S/U/W 0.7},\n"
+                          "  pdfinfo={Title={%s}}\n"
+                          "}\n" % (title,))
         self.writer.write("\\begin{document}\n\n")
 
     def postamble(self):
         self.writer.write("\\end{document}\n")
 
     def section(self, level, title):
-        assert level >= 1 and level <= 6
+        assert level >= 1 and level <= 5
         self.writer.write("\\%s{%s}\n\n" % (self.SECTION_COMMANDS[level-1], title))
 
     def para(self, content):
@@ -109,7 +113,7 @@ class HTML5Formatter(object):
         self.writer.write("</html>\n")
 
     def section(self, level, title):
-        assert level >= 1 and level <= 6
+        assert level >= 1 and level <= 5
         self.writer.write("  <h%d>%s</h%d>\n" % (level, title, level))
 
     def para(self, content):
@@ -138,7 +142,8 @@ FORMATTERS = {
     "html": HTML5Formatter,
 }
 
-FORMATTERS_HELP = "Markdown, LaTeX, or HTML5 (default: md)"
+FORMAT_HELP = "Markdown, LaTeX, or HTML5 (default: md)"
+FORMATS_WITH_TITLES = "LaTeX and HTML5"
 
 def infer_format(output_filename):
     if output_filename is None:

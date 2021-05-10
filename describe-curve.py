@@ -5,7 +5,7 @@ import sys
 from os.path import splitext
 from argparse import ArgumentParser
 
-from formatting import FORMATTERS, FORMATTERS_HELP, infer_format, infer_output_filename
+from formatting import FORMATTERS, FORMAT_HELP, FORMATS_WITH_TITLES, infer_format, infer_output_filename
 from output import output
 from curve import Curve
 
@@ -19,7 +19,9 @@ def main(args):
     parser.add_argument("--output", metavar="<outputfile>",
                         help="specify the output filename (default: input filename with filetype replaced according to format)")
     parser.add_argument("--format", choices=FORMATTERS.keys(),
-                        help="specify the output format: " + FORMATTERS_HELP)
+                        help="specify the output format: " + FORMAT_HELP)
+    parser.add_argument("--title", metavar="<title>",
+                        help="specify the output title (only relevant for " + FORMATS_WITH_TITLES + ")")
     parser.add_argument("--factors", metavar="<factorsfile>",
                         help="specify the file to be used for factorizations (default: input filename with filetype replaced by '.factors')")
     parser.add_argument("--no-primality-proofs", action="store_true", default=False,
