@@ -2,7 +2,6 @@
 # This should not include any nontrivial math.
 
 def output(out, curve):
-    out.preamble(curve.name)
+    c = curve.__dict__
     out.section(1, curve.name)
-    out.para("{name} is a {kind}.".format(**curve.__dict__))
-    out.postamble()
+    out.para("{name} is a {kind}.".format(**c))

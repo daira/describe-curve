@@ -37,5 +37,5 @@ class Curve:
         if self.curve is None and self.construction is None:
             raise KeyError("Either the 'curve' or 'construction' key is required")
 
-    def annotate(self):
+    def annotate(self, factors):
         self.kind = "curve of unknown type"
